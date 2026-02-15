@@ -16,6 +16,12 @@ resource "aws_instance" "kafka" {
   subnet_id              = var.private_subnet_ids[count.index]
   vpc_security_group_ids = [var.kafka_sg_id]
   key_name               = var.key_name
+
+  tags = {
+    Name = "kafka-${count.index + 1}"
+    role = "kafka"
+    env  = "prod"
+  }
 }
 
 resource "aws_instance" "bastion" {
@@ -25,3 +31,4 @@ resource "aws_instance" "bastion" {
   vpc_security_group_ids = [var.bastion_sg_id]
   key_name               = var.key_name
 }
+
