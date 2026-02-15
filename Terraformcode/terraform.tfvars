@@ -1,0 +1,9 @@
+region              = "ap-northeast-3"
+vpc_cidr            = "10.0.0.0/16"
+public_subnets      = ["10.0.1.0/24","10.0.2.0/24","10.0.3.0/24"]
+private_subnets     = ["10.0.11.0/24","10.0.12.0/24","10.0.13.0/24"]
+instance_type       = "t3.micro"
+key_name            = "new_key"
+ansible_vpc_id       = "vpc-0b0beca8bed4c88dc"
+ansible_vpc_cidr     = "172.31.0.0/16"
+ansible_route_table_id = "rtb-07b4fac2bbb767950"
