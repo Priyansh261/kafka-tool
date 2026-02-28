@@ -60,6 +60,14 @@ resource "aws_security_group" "kafka" {
     security_groups = [aws_security_group.bastion.id]
   }
 
+  ingress {
+    description     = "for ui access from Bastion"
+    from_port       = 9092
+    to_port         = 9092
+    protocol        = "tcp"
+    security_groups = [aws_security_group.bastion.id]
+  }
+
   # SSH from Peered VPC
   ingress {
     description = "SSH from Peered VPC"
@@ -90,3 +98,4 @@ resource "aws_security_group" "kafka" {
     Name = "kafka-sg"
   }
 }
+
